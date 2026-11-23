@@ -7,14 +7,13 @@ cask "pomotide" do
   desc "Menu bar Pomodoro timer with Do Not Disturb and Apple Music"
   homepage "https://github.com/haeringer/pomotide"
 
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
 
   app "PomoTide.app"
 
   # PomoTide is ad-hoc signed, not notarized; without this, Gatekeeper blocks the first start.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/PomoTide.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/PomoTide.app"]
   end
 
   uninstall quit: "io.github.haeringer.pomotide"
