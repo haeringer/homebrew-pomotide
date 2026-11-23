@@ -1,6 +1,6 @@
 cask "pomotide" do
   version "0.1.0"
-  sha256 "REPLACE_WITH_SHA256_FROM_RELEASE"
+  sha256 "af1dd2a725714a1965e815ac08061734500b738b87e28610054b100cc1b2760e"
 
   url "https://github.com/haeringer/pomotide/releases/download/v#{version}/PomoTide-#{version}.zip"
   name "PomoTide"
